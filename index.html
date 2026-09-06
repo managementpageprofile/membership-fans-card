@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fan Card Team - Fan card and event ticket requests">
+  <title>Fan Card Team</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Fan Card Team home">
+      <span class="brand-mark">FC</span>
+      <span>FAN CARD TEAM</span>
+    </a>
+
+    <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#fan-card">Fan Card</a>
+      <a href="#request">Request</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FAN COMMUNITY</p>
+        <h1>Premium Fan Card & Event Experiences</h1>
+        <p class="hero-text">
+          Request a fan card, event ticket, VIP experience, or meet & greet.
+          Tell us which celebrity the card is being purchased for and we'll contact you with the next steps.
+        </p>
+        <a class="button" href="#request">MAKE A REQUEST</a>
+      </div>
+    </section>
+
+    <section class="section" id="tickets">
+      <div class="section-heading">
+        <p class="eyebrow">01</p>
+        <h2>Event Tickets</h2>
+        <p>Select an experience and continue to the request form.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>General Admission</h3>
+          <div class="price">$200</div>
+          <p>Standard event access.</p>
+          <button class="text-button choose-ticket" data-request="Event ticket — General Admission ($200)">REQUEST TICKET →</button>
+        </article>
+
+        <article class="card popular">
+          <span class="popular-label">POPULAR</span>
+          <h3>VIP</h3>
+          <div class="price">$300</div>
+          <p>Enhanced event access and VIP experience.</p>
+          <button class="text-button choose-ticket" data-request="Event ticket — VIP ($300)">REQUEST TICKET →</button>
+        </article>
+
+        <article class="card">
+          <h3>Premium</h3>
+          <div class="price">$1,000</div>
+          <p>Premium event experience.</p>
+          <button class="text-button choose-ticket" data-request="Event ticket — Premium ($1,000)">REQUEST TICKET →</button>
+        </article>
+
+        <article class="card">
+          <h3>Meet &amp; Greet</h3>
+          <div class="price">$10,000</div>
+          <p>Special fan experience, subject to confirmation.</p>
+          <button class="text-button choose-ticket" data-request="Meet & Greet ($10,000)">REQUEST TICKET →</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section fan-section" id="fan-card">
+      <div class="fan-copy">
+        <p class="eyebrow">02</p>
+        <h2>Fan Card</h2>
+        <p>VIP Premium fan membership card with one-year validity.</p>
+        <ul>
+          <li>One-year membership validity</li>
+          <li>Access to approved events where stated by management</li>
+          <li>Fan community experience</li>
+        </ul>
+        <button class="button" id="fanCardButton">REQUEST FAN CARD</button>
+      </div>
+    </section>
+
+    <section class="section request-section" id="request">
+      <div class="section-heading">
+        <p class="eyebrow">03</p>
+        <h2>Request Form</h2>
+        <p>Complete your details below. The celebrity name is the person you are purchasing the card for.</p>
+      </div>
+
+      <form id="requestForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="subject" value="New Fan Card / Ticket Request">
+        <input type="hidden" name="request_type" id="requestType" value="Fan Card">
+
+        <div class="form-grid">
+          <label>
+            Celebrity name
+            <input type="text" name="celebrity_name" placeholder="Celebrity's full name" required>
+            <small>Enter the celebrity the card is being purchased for.</small>
+          </label>
+
+          <label>
+            Your full name
+            <input type="text" name="customer_name" placeholder="Your full name" required>
+          </label>
+
+          <label>
+            Email address
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            Phone number
+            <input type="tel" name="phone" placeholder="+1 234 567 8900" required>
+          </label>
+
+          <label>
+            Country
+            <input type="text" name="country" placeholder="Country" required>
+          </label>
+
+          <label>
+            Request type
+            <select name="service" id="serviceSelect" required>
+              <option value="Fan Card">Fan Card</option>
+              <option value="Event ticket — General Admission ($200)">General Admission — $200</option>
+              <option value="Event ticket — VIP ($300)">VIP — $300</option>
+              <option value="Event ticket — Premium ($1,000)">Premium — $1,000</option>
+              <option value="Meet & Greet ($10,000)">Meet & Greet — $10,000</option>
+            </select>
+          </label>
+
+          <label class="full">
+            Message
+            <textarea name="message" rows="6" placeholder="Tell management which celebrity and service you are interested in, plus any questions."></textarea>
+          </label>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I confirm that the information I entered is accurate.</label>
+        </div>
+
+        <button class="button submit-button" type="submit">SUBMIT REQUEST</button>
+        <p class="form-note">Your request will be sent to the email address configured for this form.</p>
+        <p class="success" id="successMessage" hidden>Thank you. Your request has been submitted.</p>
+        <p class="error" id="errorMessage" hidden>We couldn't submit the request. Please try again.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand">
+      <span class="brand-mark">FC</span>
+      <span>FAN CARD TEAM</span>
+    </div>
+    <p>Fan membership and event requests. Benefits and event access are subject to confirmation and applicable terms.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
